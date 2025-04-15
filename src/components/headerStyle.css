@@ -1,0 +1,17 @@
+.header
+{
+    display: flex;
+    border-bottom: solid 1px #E0E0E0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    position: sticky;
+    top: 0%;
+    z-index: 5;
+}
+
+.header img
+{
+  width: 100px;
+  height: 100px;
+}

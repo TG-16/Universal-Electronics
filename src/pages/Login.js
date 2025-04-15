@@ -4,7 +4,7 @@ import logo from "../assets/universalLogo.png";
 function Login ()
 {
     return (
-        <div>
+        <div className="container">
             <div className="loginHeader">
                 <img src={logo} alt="logo" />
                 <Topic text="Welcome Back" />
@@ -14,7 +14,7 @@ function Login ()
                 <Input placeholder="Phoone number" type="text" />
                 <Input placeholder="Password" type="password" />
                 <Button text="Login" />
-                <Button text="Sign up" />
+                <Button classname="signup" text="Sign up" />
             </form>
         </div>
     );

@@ -2,37 +2,167 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button
+{
+  background-color:#FFC107;
+  color: #333333;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 90px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button:active
+{
+  transform: scale(0.98);
+}
+
+.input
+{
+  width: 283px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  border:2px solid #E0E0E0;
+  text-align: center;
+  transition: border 0.2s ease;
+}
+
+.topic
+{
+  color: #2E7D32;
+}
+
+.input:focus
+{
+  border-color: #039BE5;
+  color: #039BE5;
+  outline: none;
+}
+
+.loginHeader, .loginForm
+{
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 480px;
+}
+
+.loginHeader
+{
+  justify-content: flex-start;
+  padding-top: 5%;
+}
+
+.loginForm
+{
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.loginForm input
+{
+  margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.loginForm button
+{
+  margin-bottom: 16px;
+  width: 270px;
+  height: 29px;
+  font-size: 14px;
+}
+
+.loginForm button:nth-child(3):hover
+{
+  background-color: #FFB300;
+}
+
+.loginForm button
+{cursor: pointer;}
+
+.container
+{
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  align-items: center;
+}
+
+img
+{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.4));
+}
+
+.signup
+{
+  background-color: white;
+  color: #2E7D32;
+  font-weight:400;
+}
+
+.homeContainer
+{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.productList
+{
+  background-color: #FAFAFA;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cartButton
+{
+ border-radius: 50%;
+ width: 50px;
+ height: 50px;
+ position:fixed;
+ right: 10%;
+ bottom: 10%;
+ color: white;
+ background-color: #039BE5;
+ box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+
+@media  (max-width: 320px) {
+  .container
+  {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .loginHeader, .loginForm
+  {
+    height: auto;
   }
+  
+  .loginHeader
+  {
+    padding-top: 0%;
+  }
+  
+  .loginForm
+  {
+    justify-content: center;
+  }
+  
 }

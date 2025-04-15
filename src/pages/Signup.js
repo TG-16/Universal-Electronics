@@ -4,7 +4,7 @@ import logo from "../assets/universalLogo.png";
 function Signup ()
 {
     return (
-        <div>
+        <div className="container">
             <div className="loginHeader">
                 <img src={logo} alt="logo" />
                 <Topic text="Create Your Account" />
@@ -16,7 +16,7 @@ function Signup ()
                 <Input placeholder="Phone number" type="text" />
                 <Input placeholder="Password" type="password" />
                 <Button text="Sign up" />
-                <Button text="Login" />
+                <Button classname="signup" text="Login" />
             </form>
         </div>
     );

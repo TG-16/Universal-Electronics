@@ -1,5 +1,6 @@
 import { Button, Input } from "./Components";
 import logo from "../assets/universalLogo.png";
+import "./headerStyle.css"
 
 function Header ()
 {

@@ -1,0 +1,13 @@
+
+footer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2E7D32;
+    color: #FFF8E1;
+    height:150px;
+    /* position:sticky;
+    bottom: 0%; */
+}

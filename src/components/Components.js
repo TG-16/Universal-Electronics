@@ -1,22 +1,22 @@
 
-function Button ({text})
+function Button ({text, classname})
 {
     return(
-        <button>{text}</button>
+        <button className={`${classname} button`}>{text}</button>
     )
 }
 
 function Input ({placeholder, type})
 {
     return(
-        <input type={type} placeholder={placeholder}/>
+        <input className={`input`} type={type} placeholder={placeholder}/>
     )
 }
 
 function Topic ({text})
 {
     return(
-        <h2>{text}</h2>
+        <h2 className={`topic`}>{text}</h2>
     )
 }
 
