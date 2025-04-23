@@ -1,4 +1,4 @@
-const { Topic, Input } = require("../Components");
+import { Topic, Input }  from "../../components/Components";
 import "./adminHeaderStyle.css";
 
 function AdminHeader ({adminButton})
