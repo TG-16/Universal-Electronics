@@ -1,0 +1,45 @@
+
+.adminContaint
+{
+    display: flex;
+    width: 95%;
+    min-height: 75vh;
+    height: fit-content;
+    align-self: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.adminContaint .orderTable
+{
+    width:100%;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.adminContaint img
+{
+    width:60px;
+    height: 60px;
+
+}
+
+.adminContaint button
+{
+    background-color: #039BE5;
+    color: white;
+}
+
+.adminContaint .orderTable tr
+{
+    border-bottom: solid #E0E0E0;
+    border-top: solid #E0E0E0;
+    margin-bottom: 1%;
+}
+
+.adminContaint .orderTable tr:hover
+{
+    border:#039BE5 solid;
+    z-index: 2;
+    border-top-color: #039BE5;
+}

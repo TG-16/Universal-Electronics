@@ -1,0 +1,25 @@
+
+.add-item
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.add-item-form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-height: 85%;
+    height: fit-content;
+    justify-content: space-evenly;
+}
+
+.add-item-form button
+{
+    margin: 3%;
+}

@@ -5,13 +5,14 @@ import ProductCard from './components/ProductCard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
-import Cart from './pages/Cart';
+import Cart from './components/Cart';
+import Admin from "./pages/Admin"
 
 function App() {
   
   return (
     <div className="App">
-      <Home />
+      <Admin />
     </div>
   );
 }

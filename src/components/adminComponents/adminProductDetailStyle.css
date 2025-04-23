@@ -1,0 +1,58 @@
+
+
+.adminProductDetail
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 75vh;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.firstRow
+{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.firstRow div
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.adminProductDetail img
+{
+    margin-left: 0%;
+    border-radius: 0%;
+    width: 60%;
+    height: 38vh;
+    filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.7));
+}
+
+.detailButtons
+{
+    
+    display: flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.detailButtons .deleteButton
+{
+    background-color: #D32F2F;
+    color: white;
+}
+
+.detailButtons button
+{
+    background-color: #FFC107;
+    color: #333;
+}
