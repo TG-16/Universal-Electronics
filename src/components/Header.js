@@ -2,13 +2,13 @@ import { Button, Input } from "./Components";
 import logo from "../assets/universalLogo.png";
 import "./headerStyle.css"
 
-function Header ()
+function Header ({loginButtonText})
 {
     return(
         <div className="header">
             <img src={logo} alt="logo" />
             <Input placeholder="Search" type="text" />
-            <Button text="Login" />
+            <Button text={loginButtonText} />
         </div>
     );
 }

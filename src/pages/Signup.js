@@ -18,6 +18,7 @@ function Signup ()
 
         fetch("http://localhost:5000/api/users/signup", {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json",
             },

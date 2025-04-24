@@ -9,6 +9,7 @@ import Cart from './components/Cart';
 import Admin from "./pages/Admin"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PageNotFound from './pages/PageNotFound';
+import PrivateRoute from './services/PrivateRoute';
 
 function App() {
   
@@ -21,7 +22,11 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={
+            <PrivateRoute>
+              <Admin />
+            </PrivateRoute>
+          } />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </div>

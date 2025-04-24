@@ -14,6 +14,7 @@ function Login ()
 
         fetch("http://localhost:5000/api/users/login", {
             method: "POST",
+            credentials: "include",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -28,7 +29,28 @@ function Login ()
                     // Redirect to home page or perform any other action
                     navigator("/");
                 } else {
-                    console.error("Login failed:");
+                    fetch("http://localhost:5000/api/admin/login", {
+                        method: "POST",
+                        credentials: "include",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            phone,
+                            password,
+                        }),
+                    })
+                    .then((response) => {
+                        if (response.ok) {
+                            console.log("Login successful!");
+                            navigator("/admin");
+                        } else {
+                            console.error("Login failed:");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
                 }
             })
             .catch((error) => {
