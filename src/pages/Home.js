@@ -53,7 +53,7 @@ function Home() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users/productList")
+    fetch("http://192.168.66.141:5000/api/users/productList")
       .then((response) => response.json())
       .then((data) => {
         // if (JSON.stringify(data) !== JSON.stringify(products)) {
