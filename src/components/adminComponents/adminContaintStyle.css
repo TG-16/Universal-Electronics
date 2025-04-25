@@ -43,3 +43,15 @@
     z-index: 2;
     border-top-color: #039BE5;
 }
+
+.adminContaint .Pending
+{
+    background-color: #039BE5;
+    color: white;
+}
+
+.adminContaint .Delivered
+{
+    background-color: #2E7D32;
+    color: white;
+}

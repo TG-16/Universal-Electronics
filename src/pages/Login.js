@@ -3,6 +3,7 @@ import logo from "../assets/universalLogo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function Login ()
 {
     const [phone, setPhone] = useState("");
@@ -28,7 +29,15 @@ function Login ()
                     console.log("Login successful!");
                     // Redirect to home page or perform any other action
                     navigator("/");
-                } else {
+                } 
+                if (response.status === 401 || response.status === 404 || response.status === 400) {
+                        response.json().then((data) => {
+                            console.error("Signup failed:", data.error || "Unknown error");
+                            alert(data.error || "Unknown error");
+    
+                        });
+                }
+                else {
                     fetch("http://localhost:5000/api/admin/login", {
                         method: "POST",
                         credentials: "include",
@@ -57,6 +66,9 @@ function Login ()
                 console.error("Error:", error);
             });
     }
+    const handleSignup = () => {
+        navigator("/signup");
+    }
 
     return (
         <div className="container">
@@ -69,7 +81,7 @@ function Login ()
                 <Input placeholder="Phone number" type="text" value={phone} onChange={e => {setPhone(e.target.value)}} />
                 <Input placeholder="Password" type="password" value={password} onChange={e => {setPassword(e.target.value)}}/>
                 <Button text="Login" type="submit" />
-                <Button classname="signup" text="Sign up" />
+                <Button classname="signup" text="Sign up" onClick={handleSignup}/>
             </form>
         </div>
     );

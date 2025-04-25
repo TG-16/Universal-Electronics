@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { Button, Input } from "../Components";
 import "./adminProductDetailStyle.css";
 
 function AdminProductDetail({ product, onProductDeleted, onProductUpdated }) {
+
+  
   const [formData, setFormData] = useState({
-    name: product.name,
-    price: product.price,
-    stock: product.stock,
-    description: product.description,
+    name: "",
+    price: "",
+    stock: "",
+    description: "",
   });
+  
+  useEffect(() => {
+    if (product) {
+      setFormData({
+        name: product.name || "",
+        price: product.price || "",
+        stock: product.stock || "",
+        description: product.description || "",
+      });
+    }
+  }, [product]);
+  
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -65,7 +79,8 @@ function AdminProductDetail({ product, onProductDeleted, onProductUpdated }) {
   return (
     <div className="adminProductDetail">
       <div className="firstRow">
-        <img src={`http://localhost:5000${product.image}`} alt={product.name} />
+      <img src={`http://localhost:5000${product.image || "/default.png"}`} alt={product.name || "Product"} />
+
         <div>
           <span>Name: </span>
           <Input type="text" value={formData.name} onChange={(e) => handleChange("name", e.target.value)} />

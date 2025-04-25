@@ -6,7 +6,7 @@ import AddItem from "./AddItem";
 import { useState , useEffect} from "react";
 
 
-function AdminContaint ({activeComponent, setActiveComponent}) 
+function AdminContaint ({activeComponent, setActiveComponent, setDescription, description}) 
 {
     
 
@@ -22,7 +22,7 @@ function AdminContaint ({activeComponent, setActiveComponent})
 
     const [products, setProducts] = useState([]);
     const [orders, setOrders] = useState([]);
-    const [description, setDescription] = useState({});
+    
 
      useEffect(() => {
         fetch("http://localhost:5000/api/admin/productList")
@@ -65,12 +65,46 @@ function AdminContaint ({activeComponent, setActiveComponent})
         setActiveComponent("Product Detail");
         setDescription(product);
       }
+
+      const statusHandler = async (order) => {
+        const confirmStatus = window.confirm("Are you sure you want to change the status of this order?");
+        if (!confirmStatus) return;
+
+        try {
+          let status = order.status === "Pending" ? "Delivered" : "Pending";
+          const response = await fetch(`http://localhost:5000/api/admin/updateOrder/${order._id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ status }),
+          });
+
+          const data = await response.json();
+          if (response.ok) {
+            fetch("http://localhost:5000/api/admin/orderList")
+              .then((response) => response.json())
+              .then((data) => {
+              setOrders(data);
+           })
+            .catch((error) => {
+              console.error("Error fetching products:", error);
+            });
+            }
+          else {
+            alert(data.error || "Failed to update order status");
+          }
+        }
+        catch (error) {
+          console.error("Error updating order status:", error);
+          alert("Error updating order status");
+        }
+      }
     
     return (
         <div className="adminContaint">
             
-            {//i have to decied how to render it
-            activeComponent === "Orders" && (orders.length === 0 ? <Topic text="No orders available"  /> : 
+            {activeComponent === "Orders" && (orders.length === 0 ? <Topic text="No orders available"  /> : 
 
              <table className="orderTable">
                 <thead>
@@ -92,7 +126,7 @@ function AdminContaint ({activeComponent, setActiveComponent})
                         <td>{order.user.name}</td>
                         <td>{product1.quantity}</td>
                         <td>{product1.product.price}</td>
-                        <td><Button text={order.status} classname={order.status} /></td>
+                        <td><Button text={order.status} classname={order.status} onClick={() => statusHandler(order)}/></td>
                     </tr>
                     ))
                 ))}

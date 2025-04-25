@@ -34,12 +34,20 @@ function Signup ()
                     console.log("Signup successful!");
                     navigator("/");
                 } else {
-                    console.error("Signup failed:");
+                    response.json().then((data) => {
+                        console.error("Signup failed:", data.error || "Unknown error");
+                        alert(data.error || "Unknown error");
+
+                    });
                 }
             })
             .catch((error) => {
                 console.error("Error:", error);
             });
+    }
+
+    const handleLogin = () => {
+        navigator("/login");
     }
 
 
@@ -56,7 +64,7 @@ function Signup ()
                 <Input placeholder="Phone number" type="text" required value={phone} onChange={e => setPhone(e.target.value)}/>
                 <Input placeholder="Password" type="password" required value={password} onChange={e => setPassword(e.target.value)}/>
                 <Button text="Sign up" type="submit"  />
-                <Button classname="signup" text="Login" />
+                <Button classname="signup" text="Login" onClick={handleLogin}/>
             </form>
         </div>
     );
