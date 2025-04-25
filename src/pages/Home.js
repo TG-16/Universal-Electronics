@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import ProductCard from "../components/ProductCard";
 import ProductDetail from "../components/ProductDetail";
 import Cart from "../components/Cart";
-import { useState, useEffect } from "react";
+import { useState, useEffect, act } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
@@ -14,6 +14,7 @@ function Home() {
   const [activeComponent, setActiveComponent] = useState("home");
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
+  const temp = [];
 
   const handleSearchResult = (product) => {
     setDescription(product);
@@ -55,6 +56,9 @@ function Home() {
     fetch("http://localhost:5000/api/users/productList")
       .then((response) => response.json())
       .then((data) => {
+        // if (JSON.stringify(data) !== JSON.stringify(products)) {
+        //   setProducts(data);
+        // }
         setProducts(data);
       })
       .catch((error) => {
@@ -75,7 +79,7 @@ function Home() {
       .catch((error) => {
         console.error("Error fetching login status:", error);
       });
-  }, []);
+  }, [activeComponent]);
 
   const loginButtonText = isLoggedIn ? "Log out" : "Log in";
 

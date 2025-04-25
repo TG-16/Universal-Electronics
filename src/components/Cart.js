@@ -99,7 +99,7 @@ function Cart({ cart, setCart, onRemove, setActiveComponent }) {
         <tbody>
           {cart.map((product, index) => (
             <tr key={index}>
-              <td><img src="pro-400.png" alt={product.name} /></td>
+              <td><img src={`http://localhost:5000${product.image}`} alt={product.name}/></td>
               <td className="productName">{product.name}</td>
               <td>{product.quantity.toLocaleString()}</td>
               <td>{(product.price * product.quantity).toLocaleString()}</td>

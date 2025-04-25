@@ -9,7 +9,7 @@ function ProductDetail ({product ,setCart, setActiveComponent})
 
     return (
             <div className="product-detail">
-                <img src="pro-400.png" alt={product.name} />
+                <img src={`http://localhost:5000${product.image}`} alt={product.name}/>
                 <Topic text={product.name} />
                 <p>{product.price} ETB</p>
                 <p>Available {product.stock}</p>

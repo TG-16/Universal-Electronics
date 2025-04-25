@@ -1,11 +1,11 @@
 import { Topic, Input }  from "../../components/Components";
 import "./adminHeaderStyle.css";
 
-function AdminHeader ({adminButton})
+function AdminHeader ({activeComponent})
 {
     return (
         <div className="adminHeader">
-            <Topic text={adminButton} />
+            <Topic text={activeComponent} />
             <Input placeholder="Search" type="search" />
         </div>
     );
