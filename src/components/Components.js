@@ -1,15 +1,15 @@
 
-function Button ({text, classname, type, onClick})
+function Button ({text, classname, type, onClick, style})
 {
     return(
-        <button className={`${classname} button`} onClick={onClick} type={type}>{text}</button>
+        <button className={`${classname} button`} onClick={onClick} type={type} style={style}>{text}</button>
     )
 }
 
-function Input ({placeholder, type, value, onChange})
+function Input ({placeholder, type, value, onChange, onKeyDown})
 {
     return(
-        <input className={`input`} type={type} placeholder={placeholder} value={value} onChange={onChange}/>
+        <input className={`input`} type={type} placeholder={placeholder} value={value} onChange={onChange} onKeyDown={onKeyDown}/>
     )
 }
 
