@@ -134,7 +134,7 @@ function AdminContaint ({activeComponent, setActiveComponent, setDescription, de
 
                 </table>)}
 
-            { activeComponent === "Products" && (products.length === 0 ? <Topic text="No orders available"  /> :
+            { activeComponent === "Products" && (products.length === 0 ? <Topic text="No Products available"  /> :
             <table className="orderTable">
                 <thead>
                 <tr>
